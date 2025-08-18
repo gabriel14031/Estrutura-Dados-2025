@@ -14,8 +14,8 @@ public class ArvoreBinaria implements Arvore {
     
     @Override
     public void inserir(int valor) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'inserir'");
+        return inserirRecursivi(this.raiz, valor);
+        //throw new UnsupportedOperationException("Unimplemented method 'inserir'");
     }
 
     public NodoArvore inserirRecursivo (NodoArvore noAtual, int valor){
