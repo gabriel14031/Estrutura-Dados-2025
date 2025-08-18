@@ -17,7 +17,18 @@ public class ArvoreBinaria implements Arvore {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'inserir'");
     }
-    
+
+    public NodoArvore inserirRecursivo (NodoArvore noAtual, int valor){
+        if (noAtual == null){
+            return new NodoArvore(valor);
+        }
+        if (valor < noAtual.chave){
+            noAtual.filhoEsquerda = inserirRecursivo(noAtual.filhoEsquerda, valor);
+        } else if (valor > noAtual.chave){
+            noAtual.filhoDireita = inserirRecursivo(noAtual.filhoDireita, valor);
+        }
+        return noAtual;
+    }
 
 
     // --- MÉTODO DE PESQUISA ---
