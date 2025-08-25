@@ -82,9 +82,9 @@ public class ArvoreBinaria implements Arvore {
         }
 
         if (valor < noAtual.chave) {
-            return pesquisaRecursivo(noAtual.filhoEsquerdo, valor);
+            return pesquisaRecursivo(noAtual.filhoEsquerda, valor);
         } else {
-            return pesquisaRecursivo(noAtual.filhoDireito, valor);
+            return pesquisaRecursivo(noAtual.filhoDireita, valor);
         }
     }
     
@@ -95,7 +95,8 @@ public class ArvoreBinaria implements Arvore {
      * Raiz -> Esquerda -> Direita. 
      */
     @Override
-    public void imprimePreFixado() {
+    public void imprimePreFixado(int valor) {
+        return imprimePreFixadoRecursivo(this.raiz, valor);
     }
     
     /**
@@ -103,6 +104,43 @@ public class ArvoreBinaria implements Arvore {
      * @param no O nó raiz da subárvore a ser impressa.
      */
     private void imprimePreFixadoRecursivo(NodoArvore no) {
+        if (no != null){
+            System.out.println(no.chave + " ")
+            imprimePreFixadoRecursivo(no.filhoEsquerda)
+            imprimePreFixadoRecursivo(no.filhoDireita)
+        }
+    }
+
+    @Override
+    public void imprimePosFixado(int valor) {
+        return imprimePosFixadoRecursivo(this.raiz, valor);
+    }
+    
+    /**
+     * Método auxiliar recursivo para o caminhamento pré-fixado.
+     * @param no O nó raiz da subárvore a ser impressa.
+     */
+    private void imprimePosFixadoRecursivo(NodoArvore no) {
+        if (no != null){
+            imprimePreFixadoRecursivo(no.filhoEsquerda)
+            imprimePreFixadoRecursivo(no.filhoDireita)
+            System.out.println(no.chave + " ")
+        }
+    }
+
+    @Override
+    public void imprimeOrdem(int valor) {
+        return imprimeOrdemRecursivo(this.raiz, valor);
+    }
+    
+    /**
+     * Método auxiliar recursivo para o caminhamento pré-fixado.
+     * @param no O nó raiz da subárvore a ser impressa.
+     */
+    private void imprimeOrdemRecursivo(NodoArvore no) {
+        imprimePreFixadoRecursivo(no.filhoEsquerda)
+        System.out.println(no.chave + " ")
+        imprimePreFixadoRecursivo(no.filhoDireita)
     }
 
 }
