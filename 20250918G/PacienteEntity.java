@@ -202,14 +202,14 @@ public class PacienteEntity implements Comparable<PacienteEntity> {
     @Override
     public int compareTo(PacienteEntity outroPaciente) {
         // Comparação por nome completo (ordem alfabética)
-        if (this.nomeCompleto != null && outroPaciente.nomeCompleto != null) {
-            return this.nomeCompleto.compareToIgnoreCase(outroPaciente.nomeCompleto);
+        if (this.cpf != null && outroPaciente.cpf != null) {
+            return this.cpf.compareToIgnoreCase(outroPaciente.cpf);
         }
         
         // Se um dos nomes for nulo, trata os casos
-        if (this.nomeCompleto == null && outroPaciente.nomeCompleto == null) {
+        if (this.cpf == null && outroPaciente.cpf == null) {
             return 0;
-        } else if (this.nomeCompleto == null) {
+        } else if (this.cpf == null) {
             return -1;
         } else {
             return 1;
